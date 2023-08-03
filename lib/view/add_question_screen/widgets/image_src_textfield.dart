@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:question_task/controller/question_controller.dart';
 
-class QuestionTextField extends StatelessWidget {
+class ImgSrcTextField extends StatelessWidget {
   final TextEditingController tfController;
   final ValueChanged<String> onTextChanged;
-  const QuestionTextField(
+  const ImgSrcTextField(
       {super.key, required this.tfController, required this.onTextChanged});
 
   @override
@@ -26,7 +26,7 @@ class QuestionTextField extends StatelessWidget {
           decoration: const InputDecoration(
               contentPadding: EdgeInsets.zero,
               label: Text(
-                "Add Your Question...",
+                "Add Your Image Link Here...",
                 style: TextStyle(fontStyle: FontStyle.italic),
               ),
               border: InputBorder.none,

@@ -8,6 +8,8 @@ class QuestionController extends GetxController {
 
   TextEditingController questionTextFieldController = TextEditingController();
   RxString addQuestionText = 'Invalid Question'.obs;
+  TextEditingController imgSrcTextFieldController = TextEditingController();
+  RxString imgSrcText = ' '.obs;
 
   //di inisiasi null saaat pembuatan object, bisa diganti dengan QuestionCategory.general atau lainnya
   Rx<QuestionCategory?> selectedCategory = Rx<QuestionCategory?>(null);

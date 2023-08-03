@@ -12,14 +12,22 @@ class DropDownCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DropdownButton(
+      underline: const SizedBox.shrink(),
       dropdownColor: Colors.black54,
       style: const TextStyle(
         fontSize: 23,
         color: Colors.white,
       ),
+      icon: const Icon(
+        Icons.arrow_drop_down_sharp,
+        size: 30,
+        color: Colors.white,
+      ),
       hint: const Text(
         "Select Question Category",
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(
+          color: Colors.white,
+        ),
       ),
       value: selectedCategory,
       items: QuestionCategory.values.map((QuestionCategory category) {
