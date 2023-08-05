@@ -14,8 +14,6 @@ class QuestionController extends GetxController {
   //di inisiasi null saaat pembuatan object, bisa diganti dengan QuestionCategory.general atau lainnya
   Rx<QuestionCategory?> selectedCategory = Rx<QuestionCategory?>(null);
 
-  void onImageError() {}
-
   void addToQuestionList(String imagePath, QuestionCategory questionCategory,
       String questionText) {
     QuestionModel newQuestion = QuestionModel(

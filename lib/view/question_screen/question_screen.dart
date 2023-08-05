@@ -51,20 +51,6 @@ class QuestionScreen extends StatelessWidget {
                                 height: 150,
                                 fit: BoxFit.cover,
                               ),
-                              // CircleAvatar(
-                              //   onBackgroundImageError:
-                              //       (exception, stackTrace) {
-                              //     controller.imageErrorList[index].value = true;
-                              //   },
-                              //   radius: 60,
-                              //   backgroundImage: controller
-                              //           .imageErrorList[index].value
-                              //       ? AssetImage('assets/images/warning.png')
-                              //       : NetworkImage(
-                              //           controller
-                              //               .listOfQuestion[index].imagePath,
-                              //         ),
-                              // ),
                               Text(controller
                                   .listOfQuestion[index].questionText),
                               const SizedBox(
