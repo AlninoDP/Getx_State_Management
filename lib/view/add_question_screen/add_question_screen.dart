@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:question_task/background.dart';
 import 'package:question_task/controller/question_controller.dart';
+import 'package:question_task/models/question_model.dart';
 import 'package:question_task/view/add_question_screen/widgets/dropdown_category.dart';
 import 'package:question_task/view/add_question_screen/widgets/image_src_textfield.dart';
 import 'package:question_task/view/add_question_screen/widgets/question_textfield.dart';
@@ -62,7 +63,14 @@ class AddQuestionScreen extends StatelessWidget {
                   ),
                 ),
                 ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      controller.addToQuestionList(
+                          controller.imgSrcText.value,
+                          controller.selectedCategory.value ??
+                              QuestionCategory.general,
+                          controller.addQuestionText.value);
+                      Get.back();
+                    },
                     style: ElevatedButton.styleFrom(
                         elevation: 10,
                         backgroundColor: Colors.greenAccent[400]),

@@ -17,12 +17,12 @@ class ImgSrcTextField extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(10)),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 13),
+        padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 0),
         child: TextField(
           controller: tfController,
           onChanged: onTextChanged,
           maxLines: 3,
-          style: const TextStyle(fontSize: 22),
+          style: const TextStyle(fontSize: 20),
           decoration: const InputDecoration(
               contentPadding: EdgeInsets.zero,
               label: Text(

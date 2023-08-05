@@ -21,7 +21,8 @@ class QuestionScreen extends StatelessWidget {
           child: Column(
             children: [
               Expanded(
-                child: ListView.builder(
+                  child: Obx(
+                () => ListView.builder(
                     itemCount: controller.listOfQuestion.length,
                     itemBuilder: ((context, index) {
                       return Card(
@@ -32,12 +33,38 @@ class QuestionScreen extends StatelessWidget {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              CircleAvatar(
-                                radius: 60,
-                                backgroundImage: NetworkImage(
+                              FadeInImage(
+                                imageErrorBuilder:
+                                    (context, error, stackTrace) {
+                                  return Image.asset(
+                                    'assets/images/warning.png',
+                                    height: 150,
+                                    width: 150,
+                                  ); // Show default asset
+                                },
+                                placeholder: const AssetImage(
+                                    'assets/images/warning.png'),
+                                image: NetworkImage(
                                   controller.listOfQuestion[index].imagePath,
                                 ),
+                                width: 150,
+                                height: 150,
+                                fit: BoxFit.cover,
                               ),
+                              // CircleAvatar(
+                              //   onBackgroundImageError:
+                              //       (exception, stackTrace) {
+                              //     controller.imageErrorList[index].value = true;
+                              //   },
+                              //   radius: 60,
+                              //   backgroundImage: controller
+                              //           .imageErrorList[index].value
+                              //       ? AssetImage('assets/images/warning.png')
+                              //       : NetworkImage(
+                              //           controller
+                              //               .listOfQuestion[index].imagePath,
+                              //         ),
+                              // ),
                               Text(controller
                                   .listOfQuestion[index].questionText),
                               const SizedBox(
@@ -50,7 +77,7 @@ class QuestionScreen extends StatelessWidget {
                         ),
                       );
                     })),
-              ),
+              )),
             ],
           ),
         ),
