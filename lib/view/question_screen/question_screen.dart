@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:question_task/background.dart';
 import 'package:question_task/controller/question_controller.dart';
 import 'package:question_task/view/add_question_screen/add_question_screen.dart';
+import 'package:question_task/view/question_screen/widgets/question_card.dart';
 
 class QuestionScreen extends StatelessWidget {
   const QuestionScreen({super.key});
@@ -17,7 +19,7 @@ class QuestionScreen extends StatelessWidget {
       ),
       body: Background(
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(10.w),
           child: Column(
             children: [
               Expanded(
@@ -25,43 +27,7 @@ class QuestionScreen extends StatelessWidget {
                 () => ListView.builder(
                     itemCount: controller.listOfQuestion.length,
                     itemBuilder: ((context, index) {
-                      return Card(
-                        elevation: 20,
-                        shadowColor: Colors.grey,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              FadeInImage(
-                                imageErrorBuilder:
-                                    (context, error, stackTrace) {
-                                  return Image.asset(
-                                    'assets/images/warning.png',
-                                    height: 150,
-                                    width: 150,
-                                  ); // Show default asset
-                                },
-                                placeholder: const AssetImage(
-                                    'assets/images/warning.png'),
-                                image: NetworkImage(
-                                  controller.listOfQuestion[index].imagePath,
-                                ),
-                                width: 150,
-                                height: 150,
-                                fit: BoxFit.cover,
-                              ),
-                              Text(controller
-                                  .listOfQuestion[index].questionText),
-                              const SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                  'Category: ${controller.listOfQuestion[index].questionCategory.toString().split('.').last}')
-                            ],
-                          ),
-                        ),
-                      );
+                      return QuestionCard(controller: controller, index: index);
                     })),
               )),
             ],
@@ -73,9 +39,9 @@ class QuestionScreen extends StatelessWidget {
           Get.to(() => const AddQuestionScreen());
         },
         elevation: 5,
-        child: const Icon(
+        child: Icon(
           Icons.add,
-          size: 30,
+          size: 30.w,
         ),
       ),
     );

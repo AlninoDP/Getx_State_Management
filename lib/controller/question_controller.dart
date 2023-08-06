@@ -3,17 +3,19 @@ import 'package:get/get.dart';
 import 'package:question_task/models/question_model.dart';
 
 class QuestionController extends GetxController {
+//* get Screen Width & Hight
   final screenWidth = Get.width;
   final screenHeight = Get.height;
 
+//* Variables
   TextEditingController questionTextFieldController = TextEditingController();
   RxString addQuestionText = 'Invalid Question'.obs;
   TextEditingController imgSrcTextFieldController = TextEditingController();
   RxString imgSrcText = ' '.obs;
-
   //di inisiasi null saaat pembuatan object, bisa diganti dengan QuestionCategory.general atau lainnya
   Rx<QuestionCategory?> selectedCategory = Rx<QuestionCategory?>(null);
 
+//* Method / Function
   void addToQuestionList(String imagePath, QuestionCategory questionCategory,
       String questionText) {
     QuestionModel newQuestion = QuestionModel(
@@ -29,6 +31,15 @@ class QuestionController extends GetxController {
     update();
   }
 
+  void resetAll() {
+    imgSrcTextFieldController.clear();
+    questionTextFieldController.clear();
+    imgSrcText.value = ' ';
+    addQuestionText.value = 'Invalid Question';
+    selectedCategory.value = null;
+  }
+
+//* List
   List<QuestionModel> listOfQuestion = [
     QuestionModel(
         imagePath:
