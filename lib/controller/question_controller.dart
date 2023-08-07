@@ -39,6 +39,14 @@ class QuestionController extends GetxController {
     selectedCategory.value = null;
   }
 
+  void addToFilteredList(QuestionModel questionModel) {
+    filteredList.add(questionModel);
+  }
+
+  void clearFilteredList() {
+    filteredList.clear();
+  }
+
 //* List
   List<QuestionModel> listOfQuestion = [
     QuestionModel(
@@ -86,4 +94,6 @@ class QuestionController extends GetxController {
         questionCategory: QuestionCategory.sport,
         questionText: 'How Many Bowling Pin Are There ?')
   ].obs;
+
+  List<QuestionModel> filteredList = [];
 }

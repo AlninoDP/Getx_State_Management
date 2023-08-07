@@ -14,14 +14,16 @@ class QuestionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final QuestionModel list2 = controller.listOfQuestion[index];
+    final List<QuestionModel> filteredList = [];
+    filteredList.add(controller.listOfQuestion[index]);
     return Card(
       elevation: 20,
       shadowColor: Colors.grey,
       child: InkWell(
         onTap: () {
-          // Get.to(() =>
-          //     QuestionDetailScreen(list1: controller.listOfQuestion[index]));
+          controller.clearFilteredList();
+          controller.addToFilteredList(controller.listOfQuestion[index]);
+          Get.to(() => QuestionDetailScreen(questionList: filteredList));
         },
         child: Padding(
           padding: EdgeInsets.all(8.w),

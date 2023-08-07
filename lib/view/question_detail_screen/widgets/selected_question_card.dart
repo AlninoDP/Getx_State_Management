@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:question_task/controller/question_controller.dart';
 import 'package:question_task/view/question_screen/widgets/show_image_error.dart';
 
-class QuestionCard extends StatelessWidget {
+class SelectedQuestionCard extends StatelessWidget {
   final QuestionController controller;
   final int index;
-  const QuestionCard(
+  const SelectedQuestionCard(
       {super.key, required this.controller, required this.index});
 
   @override
@@ -25,18 +25,18 @@ class QuestionCard extends StatelessWidget {
               },
               placeholder: const AssetImage('assets/images/loading.gif'),
               image: NetworkImage(
-                controller.listOfQuestion[index].imagePath,
+                controller.filteredList[index].imagePath,
               ),
               width: 150.w,
               height: 125.h,
               fit: BoxFit.cover,
             ),
-            Text(controller.listOfQuestion[index].questionText),
+            Text(controller.filteredList[index].questionText),
             SizedBox(
               height: 5.h,
             ),
             Text(
-                'Category: ${controller.listOfQuestion[index].questionCategory.toString().split('.').last}')
+                'Category: ${controller.filteredList[index].questionCategory.toString().split('.').last}')
           ],
         ),
       ),
