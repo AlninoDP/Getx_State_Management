@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:question_task/controller/question_controller.dart';
 import 'package:question_task/view/question_screen/widgets/show_image_error.dart';
 
-class SelectedQuestionCard extends StatelessWidget {
+class QuestionDetailCard extends StatelessWidget {
   final QuestionController controller;
   final int index;
-  const SelectedQuestionCard(
+  const QuestionDetailCard(
       {super.key, required this.controller, required this.index});
 
   @override

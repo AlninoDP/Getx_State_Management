@@ -23,7 +23,8 @@ class QuestionCard extends StatelessWidget {
         onTap: () {
           controller.clearFilteredList();
           controller.addToFilteredList(controller.listOfQuestion[index]);
-          Get.to(() => QuestionDetailScreen(questionList: filteredList));
+          Get.to(() => QuestionDetailScreen(questionList: filteredList),
+              transition: Transition.native);
         },
         child: Padding(
           padding: EdgeInsets.all(8.w),
