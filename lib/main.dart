@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         designSize: const Size(360, 640),
         builder: (context, child) {
           return const GetMaterialApp(
-            title: 'GetX State',
+            title: 'QuestionTask',
             debugShowCheckedModeBanner: false,
             home: QuestionScreen(),
           );
