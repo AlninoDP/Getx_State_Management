@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:question_task/controller/question_controller.dart';
-import 'package:question_task/models/question_model.dart';
 import 'package:question_task/view/question_detail_screen/question_detail_screen.dart';
 import 'package:question_task/view/question_screen/widgets/show_image_error.dart';
 
@@ -14,8 +13,7 @@ class QuestionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<QuestionModel> filteredList = [];
-    filteredList.add(controller.listOfQuestion[index]);
+    controller.filteredList.add(controller.listOfQuestion[index]);
     return Card(
       elevation: 20,
       shadowColor: Colors.grey,
@@ -23,7 +21,8 @@ class QuestionCard extends StatelessWidget {
         onTap: () {
           controller.clearFilteredList();
           controller.addToFilteredList(controller.listOfQuestion[index]);
-          Get.to(() => QuestionDetailScreen(questionList: filteredList),
+          Get.to(
+              () => QuestionDetailScreen(questionList: controller.filteredList),
               transition: Transition.native);
         },
         child: Padding(

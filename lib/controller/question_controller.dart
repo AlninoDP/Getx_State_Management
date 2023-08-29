@@ -15,6 +15,9 @@ class QuestionController extends GetxController {
   //di inisiasi null saaat pembuatan object, bisa diganti dengan QuestionCategory.general atau lainnya
   Rx<QuestionCategory?> selectedCategory = Rx<QuestionCategory?>(null);
 
+//* BottomNavBar
+  RxInt btmNavBarCurrentIndex = 0.obs;
+
 //* Method / Function
   void addToQuestionList(String imagePath, QuestionCategory questionCategory,
       String questionText) {
@@ -48,7 +51,7 @@ class QuestionController extends GetxController {
   }
 
 //* List
-  List<QuestionModel> filteredList = [];
+  late List<QuestionModel> filteredList = [];
   List<QuestionModel> listOfQuestion = [
     QuestionModel(
         imagePath:
