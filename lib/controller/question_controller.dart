@@ -42,6 +42,7 @@ class QuestionController extends GetxController {
     selectedCategory.value = null;
   }
 
+//* Question Detail
   void addToFilteredList(QuestionModel questionModel) {
     filteredList.add(questionModel);
   }

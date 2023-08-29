@@ -35,16 +35,6 @@ class QuestionScreen extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Get.to(() => AddQuestionScreen());
-        },
-        elevation: 5,
-        child: Icon(
-          Icons.add,
-          size: 30.w,
-        ),
-      ),
     );
   }
 }
