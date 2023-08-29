@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:question_task/background.dart';
 import 'package:question_task/controller/question_controller.dart';
-import 'package:question_task/view/add_question_screen/add_question_screen.dart';
 import 'package:question_task/view/question_screen/widgets/question_card.dart';
 
 class QuestionScreen extends StatelessWidget {

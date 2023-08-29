@@ -43,6 +43,11 @@ class QuestionController extends GetxController {
   }
 
 //* Question Detail
+  RxInt totalHint = 3.obs;
+  void revealHint() {
+    totalHint -= 1;
+  }
+
   void addToFilteredList(QuestionModel questionModel) {
     filteredList.add(questionModel);
   }
