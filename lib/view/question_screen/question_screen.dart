@@ -7,11 +7,11 @@ import 'package:question_task/view/add_question_screen/add_question_screen.dart'
 import 'package:question_task/view/question_screen/widgets/question_card.dart';
 
 class QuestionScreen extends StatelessWidget {
-  const QuestionScreen({super.key});
+  final QuestionController questionController = Get.find();
+  QuestionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    QuestionController controller = Get.put(QuestionController());
     return Scaffold(
       appBar: AppBar(
         title: const Text("Question Screen"),
@@ -25,9 +25,10 @@ class QuestionScreen extends StatelessWidget {
               Expanded(
                   child: Obx(
                 () => ListView.builder(
-                    itemCount: controller.listOfQuestion.length,
+                    itemCount: questionController.listOfQuestion.length,
                     itemBuilder: ((context, index) {
-                      return QuestionCard(controller: controller, index: index);
+                      return QuestionCard(
+                          controller: questionController, index: index);
                     })),
               )),
             ],
@@ -36,7 +37,7 @@ class QuestionScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.to(() => const AddQuestionScreen());
+          Get.to(() => AddQuestionScreen());
         },
         elevation: 5,
         child: Icon(

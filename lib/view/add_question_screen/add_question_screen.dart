@@ -10,11 +10,13 @@ import 'package:question_task/view/add_question_screen/widgets/image_src_textfie
 import 'package:question_task/view/add_question_screen/widgets/question_textfield.dart';
 
 class AddQuestionScreen extends StatelessWidget {
-  const AddQuestionScreen({super.key});
+  final QuestionController questionController = Get.find();
+  AddQuestionScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    QuestionController controller = Get.find();
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -23,8 +25,8 @@ class AddQuestionScreen extends StatelessWidget {
       body: Background(
         child: Center(
           child: Container(
-            width: controller.screenWidth * 0.95,
-            height: controller.screenHeight * 0.7,
+            width: questionController.screenWidth * 0.95,
+            height: questionController.screenHeight * 0.7,
             decoration: BoxDecoration(
                 color: Colors.black26, borderRadius: BorderRadius.circular(10)),
             child: Column(
@@ -32,9 +34,10 @@ class AddQuestionScreen extends StatelessWidget {
               children: [
                 Center(
                   child: ImgSrcTextField(
-                      tfController: controller.imgSrcTextFieldController,
+                      tfController:
+                          questionController.imgSrcTextFieldController,
                       onTextChanged: (value) {
-                        controller.imgSrcText.value = value;
+                        questionController.imgSrcText.value = value;
                       }),
                 ),
                 const SizedBox(
@@ -42,34 +45,29 @@ class AddQuestionScreen extends StatelessWidget {
                 ),
                 Center(
                   child: QuestionTextField(
-                      tfController: controller.questionTextFieldController,
+                      tfController:
+                          questionController.questionTextFieldController,
                       onTextChanged: (value) {
-                        controller.addQuestionText.value = value;
+                        questionController.addQuestionText.value = value;
                       }),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 Obx(
-                  () => Container(
-                    padding: const EdgeInsets.only(
-                        top: 5, bottom: 5, right: 5, left: 10),
-                    decoration: BoxDecoration(
-                        color: Colors.black45,
-                        borderRadius: BorderRadius.circular(8)),
-                    child: DropDownCategory(
-                        selectedCategory: controller.selectedCategory.value,
-                        onDropdownChanged: (newValue) {
-                          controller.onDropdownChanged(newValue);
-                        }),
-                  ),
+                  () => DropDownCategory(
+                      selectedCategory:
+                          questionController.selectedCategory.value,
+                      onDropdownChanged: (newValue) {
+                        questionController.onDropdownChanged(newValue);
+                      }),
                 ),
                 Row(mainAxisSize: MainAxisSize.min, children: [
-                  CheckButton(controller: controller),
+                  CheckButton(controller: questionController),
                   SizedBox(
                     width: 10.w,
                   ),
-                  CancelButton(controller: controller)
+                  CancelButton(controller: questionController)
                 ])
               ],
             ),

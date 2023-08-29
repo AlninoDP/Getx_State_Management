@@ -6,12 +6,12 @@ import 'package:question_task/models/question_model.dart';
 import 'package:question_task/view/question_detail_screen/widgets/question_detail_card.dart';
 
 class QuestionDetailScreen extends StatelessWidget {
+  final QuestionController questionController = Get.find();
   final List<QuestionModel> questionList;
-  const QuestionDetailScreen({super.key, required this.questionList});
+  QuestionDetailScreen({super.key, required this.questionList});
 
   @override
   Widget build(BuildContext context) {
-    final QuestionController controller = Get.find();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Question Detail'),
@@ -24,9 +24,10 @@ class QuestionDetailScreen extends StatelessWidget {
           children: [
             Expanded(
                 child: ListView.builder(
-              itemCount: controller.filteredList.length,
+              itemCount: questionController.filteredList.length,
               itemBuilder: (context, index) {
-                return QuestionDetailCard(controller: controller, index: index);
+                return QuestionDetailCard(
+                    controller: questionController, index: index);
               },
             ))
           ],

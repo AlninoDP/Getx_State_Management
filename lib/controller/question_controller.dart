@@ -48,6 +48,7 @@ class QuestionController extends GetxController {
   }
 
 //* List
+  List<QuestionModel> filteredList = [];
   List<QuestionModel> listOfQuestion = [
     QuestionModel(
         imagePath:
@@ -94,6 +95,4 @@ class QuestionController extends GetxController {
         questionCategory: QuestionCategory.sport,
         questionText: 'How Many Bowling Pin Are There ?')
   ].obs;
-
-  List<QuestionModel> filteredList = [];
 }
