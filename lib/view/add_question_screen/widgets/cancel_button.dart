@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:question_task/controller/question_controller.dart';
 
 class CancelButton extends StatelessWidget {

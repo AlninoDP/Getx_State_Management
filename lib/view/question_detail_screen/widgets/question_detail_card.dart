@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:question_task/controller/question_controller.dart';
 import 'package:question_task/view/question_detail_screen/widgets/hint_text.dart';
 import 'package:question_task/view/question_screen/widgets/show_image_error.dart';

@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:question_task/controller/question_controller.dart';
 
-class QuestionTextField extends StatelessWidget {
+class CustomTextfield extends StatelessWidget {
   final TextEditingController tfController;
   final ValueChanged<String> onTextChanged;
-  const QuestionTextField(
-      {super.key, required this.tfController, required this.onTextChanged});
+  final String tfLabel;
+  const CustomTextfield(
+      {super.key,
+      required this.tfController,
+      required this.onTextChanged,
+      required this.tfLabel});
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +27,11 @@ class QuestionTextField extends StatelessWidget {
           onChanged: onTextChanged,
           maxLines: 3,
           style: const TextStyle(fontSize: 22),
-          decoration: const InputDecoration(
+          decoration: InputDecoration(
               contentPadding: EdgeInsets.zero,
               label: Text(
-                "Add Your Question...",
-                style: TextStyle(fontStyle: FontStyle.italic),
+                tfLabel,
+                style: const TextStyle(fontStyle: FontStyle.italic),
               ),
               border: InputBorder.none,
               floatingLabelBehavior: FloatingLabelBehavior.never),

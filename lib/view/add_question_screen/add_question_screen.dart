@@ -5,9 +5,8 @@ import 'package:question_task/background.dart';
 import 'package:question_task/controller/question_controller.dart';
 import 'package:question_task/view/add_question_screen/widgets/cancel_button.dart';
 import 'package:question_task/view/add_question_screen/widgets/check_button.dart';
+import 'package:question_task/view/add_question_screen/widgets/custom_textfield.dart';
 import 'package:question_task/view/add_question_screen/widgets/dropdown_category.dart';
-import 'package:question_task/view/add_question_screen/widgets/image_src_textfield.dart';
-import 'package:question_task/view/add_question_screen/widgets/question_textfield.dart';
 
 class AddQuestionScreen extends StatelessWidget {
   final QuestionController questionController = Get.find();
@@ -33,7 +32,8 @@ class AddQuestionScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Center(
-                  child: ImgSrcTextField(
+                  child: CustomTextfield(
+                      tfLabel: 'Add Your Image Link Here...',
                       tfController:
                           questionController.imgSrcTextFieldController,
                       onTextChanged: (value) {
@@ -44,13 +44,47 @@ class AddQuestionScreen extends StatelessWidget {
                   height: 10,
                 ),
                 Center(
-                  child: QuestionTextField(
+                  child: CustomTextfield(
+                      tfLabel: 'Add Your Question...',
                       tfController:
                           questionController.questionTextFieldController,
                       onTextChanged: (value) {
                         questionController.addQuestionText.value = value;
                       }),
                 ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Center(
+                  child: CustomTextfield(
+                      tfLabel: 'Add Hint No One...',
+                      tfController: questionController.hint1TextFieldController,
+                      onTextChanged: (value) {
+                        questionController.hint1Text.value = value;
+                      }),
+                ),
+                // const SizedBox(
+                //   height: 10,
+                // ),
+                // Center(
+                //   child: CustomTextfield(
+                //       tfLabel: 'Add Hint No Two...',
+                //       tfController: questionController.hint2TextFieldController,
+                //       onTextChanged: (value) {
+                //         questionController.hint2Text.value = value;
+                //       }),
+                // ),
+                // const SizedBox(
+                //   height: 10,
+                // ),
+                // Center(
+                //   child: CustomTextfield(
+                //       tfLabel: 'Add The Answer...',
+                //       tfController: questionController.hint3TextFieldController,
+                //       onTextChanged: (value) {
+                //         questionController.hint3Text.value = value;
+                //       }),
+                // ),
                 const SizedBox(
                   height: 10,
                 ),
