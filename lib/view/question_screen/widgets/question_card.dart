@@ -22,9 +22,7 @@ class QuestionCard extends StatelessWidget {
           controller.clearFilteredList();
           controller.addToFilteredList(controller.listOfQuestion[index]);
           controller.resetHint();
-          Get.to(
-              () => QuestionDetailScreen(questionList: controller.filteredList),
-              transition: Transition.native);
+          Get.to(() => QuestionDetailScreen(), transition: Transition.native);
         },
         child: Padding(
           padding: EdgeInsets.all(8.w),

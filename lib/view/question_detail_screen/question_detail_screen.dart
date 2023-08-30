@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:question_task/background.dart';
 import 'package:question_task/controller/question_controller.dart';
-import 'package:question_task/models/question_model.dart';
 import 'package:question_task/view/question_detail_screen/widgets/question_detail_card.dart';
 
 class QuestionDetailScreen extends StatelessWidget {
   final QuestionController questionController = Get.find();
-  final List<QuestionModel> questionList;
-  QuestionDetailScreen({super.key, required this.questionList});
+  QuestionDetailScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

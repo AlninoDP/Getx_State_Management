@@ -43,13 +43,22 @@ class QuestionDetailCard extends StatelessWidget {
                 )
               ],
             ),
+            SizedBox(
+              height: 5.h,
+            ),
             Text(controller.filteredList[index].questionText),
             SizedBox(
               height: 5.h,
             ),
             Text(
                 'Category: ${controller.filteredList[index].questionCategory.toString().split('.').last}'),
-            HintText(controller: controller),
+            SizedBox(
+              height: 5.h,
+            ),
+            HintText(
+              controller: controller,
+              index: index,
+            ),
           ],
         ),
       ),
