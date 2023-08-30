@@ -10,7 +10,6 @@ class CancelButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
         onPressed: () {
-          Get.back();
           controller.resetAll();
         },
         style: ElevatedButton.styleFrom(

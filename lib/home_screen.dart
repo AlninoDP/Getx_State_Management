@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<BottomNavigationBarItem> _items = const [
+    List<BottomNavigationBarItem> items = const [
       BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
       BottomNavigationBarItem(
           icon: Icon(Icons.library_add_outlined), label: 'Add Question')
@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
             onTap: (index) {
               questionController.btmNavBarCurrentIndex.value = index;
             },
-            items: _items,
+            items: items,
           ),
         ));
   }

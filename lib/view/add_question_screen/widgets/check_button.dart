@@ -15,8 +15,10 @@ class CheckButton extends StatelessWidget {
               controller.imgSrcText.value,
               controller.selectedCategory.value ?? QuestionCategory.general,
               controller.addQuestionText.value);
-          Get.back();
           controller.resetAll();
+          Get.snackbar('Succes!', 'Your Question Is Added to The List',
+              duration: const Duration(milliseconds: 1500),
+              animationDuration: const Duration(seconds: 1));
         },
         style: ElevatedButton.styleFrom(
             elevation: 10, backgroundColor: Colors.greenAccent[400]),
