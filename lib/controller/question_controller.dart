@@ -44,6 +44,10 @@ class QuestionController extends GetxController {
 
 //* Question Detail
   RxInt totalHint = 3.obs;
+  void resetHint() {
+    totalHint.value = 3;
+  }
+
   void revealHint() {
     totalHint -= 1;
   }

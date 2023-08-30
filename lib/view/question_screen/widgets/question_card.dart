@@ -21,6 +21,7 @@ class QuestionCard extends StatelessWidget {
         onTap: () {
           controller.clearFilteredList();
           controller.addToFilteredList(controller.listOfQuestion[index]);
+          controller.resetHint();
           Get.to(
               () => QuestionDetailScreen(questionList: controller.filteredList),
               transition: Transition.native);
