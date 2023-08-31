@@ -34,6 +34,11 @@ class AddQuestionScreen extends StatelessWidget {
                 Center(
                   child: CustomTextfield(
                       tfLabel: 'Add Your Image Link Here...',
+                      icon: const Icon(
+                        Icons.image,
+                        size: 35,
+                        color: Colors.blue,
+                      ),
                       tfController:
                           questionController.imgSrcTextFieldController,
                       onTextChanged: (value) {
@@ -46,45 +51,17 @@ class AddQuestionScreen extends StatelessWidget {
                 Center(
                   child: CustomTextfield(
                       tfLabel: 'Add Your Question...',
+                      icon: const Icon(
+                        Icons.question_mark,
+                        size: 35,
+                        color: Colors.blue,
+                      ),
                       tfController:
                           questionController.questionTextFieldController,
                       onTextChanged: (value) {
                         questionController.addQuestionText.value = value;
                       }),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Center(
-                  child: CustomTextfield(
-                      tfLabel: 'Add Hint No One...',
-                      tfController: questionController.hint1TextFieldController,
-                      onTextChanged: (value) {
-                        questionController.hint1Text.value = value;
-                      }),
-                ),
-                // const SizedBox(
-                //   height: 10,
-                // ),
-                // Center(
-                //   child: CustomTextfield(
-                //       tfLabel: 'Add Hint No Two...',
-                //       tfController: questionController.hint2TextFieldController,
-                //       onTextChanged: (value) {
-                //         questionController.hint2Text.value = value;
-                //       }),
-                // ),
-                // const SizedBox(
-                //   height: 10,
-                // ),
-                // Center(
-                //   child: CustomTextfield(
-                //       tfLabel: 'Add The Answer...',
-                //       tfController: questionController.hint3TextFieldController,
-                //       onTextChanged: (value) {
-                //         questionController.hint3Text.value = value;
-                //       }),
-                // ),
                 const SizedBox(
                   height: 10,
                 ),
