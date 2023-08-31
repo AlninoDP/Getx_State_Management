@@ -5,8 +5,10 @@ import 'package:question_task/background.dart';
 import 'package:question_task/controller/question_controller.dart';
 import 'package:question_task/view/add_question_screen/widgets/cancel_button.dart';
 import 'package:question_task/view/add_question_screen/widgets/check_button.dart';
-import 'package:question_task/view/add_question_screen/widgets/custom_textfield.dart';
 import 'package:question_task/view/add_question_screen/widgets/dropdown_category.dart';
+import 'package:question_task/view/add_question_screen/widgets/hint_textfield.dart';
+import 'package:question_task/view/add_question_screen/widgets/img_src_textfield.dart';
+import 'package:question_task/view/add_question_screen/widgets/question_textfield.dart';
 
 class AddQuestionScreen extends StatelessWidget {
   final QuestionController questionController = Get.find();
@@ -31,55 +33,74 @@ class AddQuestionScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Center(
-                  child: CustomTextfield(
-                      tfLabel: 'Add Your Image Link Here...',
-                      icon: const Icon(
-                        Icons.image,
-                        size: 35,
-                        color: Colors.blue,
+                Expanded(
+                    child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: ListView(
+                    children: [
+                      Center(child: ImgSrcTextfield()),
+                      const SizedBox(
+                        height: 10,
                       ),
-                      tfController:
-                          questionController.imgSrcTextFieldController,
-                      onTextChanged: (value) {
-                        questionController.imgSrcText.value = value;
-                      }),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Center(
-                  child: CustomTextfield(
-                      tfLabel: 'Add Your Question...',
-                      icon: const Icon(
-                        Icons.question_mark,
-                        size: 35,
-                        color: Colors.blue,
+                      Center(child: QuestionTextfield()),
+                      const SizedBox(
+                        height: 10,
                       ),
-                      tfController:
-                          questionController.questionTextFieldController,
-                      onTextChanged: (value) {
-                        questionController.addQuestionText.value = value;
-                      }),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Obx(
-                  () => DropDownCategory(
-                      selectedCategory:
-                          questionController.selectedCategory.value,
-                      onDropdownChanged: (newValue) {
-                        questionController.onDropdownChanged(newValue);
-                      }),
-                ),
-                Row(mainAxisSize: MainAxisSize.min, children: [
-                  CheckButton(controller: questionController),
-                  SizedBox(
-                    width: 10.w,
+                      Center(
+                        child: HintTextField(
+                          tfLabel: 'Add First Hint...',
+                          tfController:
+                              questionController.hint1TextFieldController,
+                          onTextChanged: (value) {
+                            questionController.hint1Text.value = value;
+                          },
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Center(
+                          child: HintTextField(
+                              tfLabel: 'Add Second Hint...',
+                              tfController:
+                                  questionController.hint2TextFieldController,
+                              onTextChanged: (value) {
+                                questionController.hint2Text.value = value;
+                              })),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Center(
+                          child: HintTextField(
+                              tfLabel: 'Add The Answer...',
+                              tfController:
+                                  questionController.hint3TextFieldController,
+                              onTextChanged: (value) {
+                                questionController.hint3Text.value = value;
+                              })),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Obx(
+                        () => DropDownCategory(
+                            selectedCategory:
+                                questionController.selectedCategory.value,
+                            onDropdownChanged: (newValue) {
+                              questionController.onDropdownChanged(newValue);
+                            }),
+                      ),
+                      Center(
+                        child: Row(mainAxisSize: MainAxisSize.min, children: [
+                          CheckButton(controller: questionController),
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          CancelButton(controller: questionController)
+                        ]),
+                      )
+                    ],
                   ),
-                  CancelButton(controller: questionController)
-                ])
+                ))
               ],
             ),
           ),

@@ -3,11 +3,12 @@ import 'package:get/get.dart';
 import 'package:question_task/controller/question_controller.dart';
 
 class CustomTextfield extends StatelessWidget {
+  final QuestionController questionController = Get.find();
   final TextEditingController tfController;
   final ValueChanged<String> onTextChanged;
   final String tfLabel;
   final Icon? icon;
-  const CustomTextfield(
+  CustomTextfield(
       {super.key,
       required this.tfController,
       required this.onTextChanged,
@@ -16,10 +17,9 @@ class CustomTextfield extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    QuestionController controller = Get.find();
     return Container(
-      height: controller.screenHeight * 0.10,
-      width: controller.screenWidth * 0.87,
+      height: questionController.screenHeight * 0.09,
+      width: questionController.screenWidth * 0.87,
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(10)),
       child: Padding(
