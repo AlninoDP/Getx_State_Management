@@ -16,7 +16,12 @@ class QuestionTextfield extends StatelessWidget {
           size: 35,
           color: Colors.blue,
         ),
+        focusNode: questionController.questionTextFocus,
         tfController: questionController.questionTextFieldController,
+        onSubmitted: (_) {
+          questionController.changeFocus(questionController.questionTextFocus,
+              questionController.hint1Focus, context);
+        },
         onTextChanged: (value) {
           questionController.addQuestionText.value = value;
         });

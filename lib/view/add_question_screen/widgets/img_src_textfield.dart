@@ -16,7 +16,12 @@ class ImgSrcTextfield extends StatelessWidget {
           size: 35,
           color: Colors.blue,
         ),
+        focusNode: questionController.imgSrcFocus,
         tfController: questionController.imgSrcTextFieldController,
+        onSubmitted: (_) {
+          questionController.changeFocus(questionController.imgSrcFocus,
+              questionController.questionTextFocus, context);
+        },
         onTextChanged: (value) {
           questionController.imgSrcText.value = value;
         });

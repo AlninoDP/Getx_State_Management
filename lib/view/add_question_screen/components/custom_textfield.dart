@@ -6,6 +6,8 @@ class CustomTextfield extends StatelessWidget {
   final QuestionController questionController = Get.find();
   final TextEditingController tfController;
   final ValueChanged<String> onTextChanged;
+  final Function(String)? onSubmitted;
+  final FocusNode? focusNode;
   final String tfLabel;
   final Icon? icon;
   CustomTextfield(
@@ -13,6 +15,8 @@ class CustomTextfield extends StatelessWidget {
       required this.tfController,
       required this.onTextChanged,
       required this.tfLabel,
+      this.focusNode,
+      this.onSubmitted,
       this.icon});
 
   @override
@@ -26,9 +30,11 @@ class CustomTextfield extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 13),
         child: TextField(
           controller: tfController,
+          focusNode: focusNode,
           onChanged: onTextChanged,
+          onSubmitted: onSubmitted,
           maxLines: 2,
-          textInputAction: TextInputAction.done,
+          textInputAction: TextInputAction.next,
           style: const TextStyle(fontSize: 22),
           decoration: InputDecoration(
               contentPadding: const EdgeInsets.fromLTRB(0, -6, 10, 5),

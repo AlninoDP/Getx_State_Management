@@ -8,23 +8,34 @@ class QuestionController extends GetxController {
   final screenHeight = Get.height;
 
 //* AddQuestionScreen
-  TextEditingController questionTextFieldController = TextEditingController();
-  RxString addQuestionText = 'Invalid Question'.obs;
-
   TextEditingController imgSrcTextFieldController = TextEditingController();
   RxString imgSrcText = ' '.obs;
+  FocusNode imgSrcFocus = FocusNode();
+
+  TextEditingController questionTextFieldController = TextEditingController();
+  RxString addQuestionText = 'Invalid Question'.obs;
+  FocusNode questionTextFocus = FocusNode();
 
   TextEditingController hint1TextFieldController = TextEditingController();
   RxString hint1Text = 'Hint Unavailable'.obs;
+  FocusNode hint1Focus = FocusNode();
 
   TextEditingController hint2TextFieldController = TextEditingController();
   RxString hint2Text = 'Hint Unavailable'.obs;
+  FocusNode hint2Focus = FocusNode();
 
   TextEditingController hint3TextFieldController = TextEditingController();
   RxString hint3Text = 'Hint Unavailable'.obs;
+  FocusNode hint3Focus = FocusNode();
 
   //di inisiasi null saaat pembuatan object, bisa diganti dengan QuestionCategory.general atau lainnya
   Rx<QuestionCategory?> selectedCategory = Rx<QuestionCategory?>(null);
+
+  void changeFocus(FocusNode currentFocusNode, FocusNode targetFocusNode,
+      BuildContext context) {
+    currentFocusNode.unfocus();
+    FocusScope.of(context).requestFocus(targetFocusNode);
+  }
 
   void addToQuestionList() {
     QuestionModel newQuestion = QuestionModel(

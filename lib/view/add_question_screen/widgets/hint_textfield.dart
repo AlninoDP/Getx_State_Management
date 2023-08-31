@@ -5,11 +5,15 @@ class HintTextField extends StatelessWidget {
   final TextEditingController tfController;
   final String tfLabel;
   final ValueChanged<String> onTextChanged;
+  final Function(String)? onSubmitted;
+  final FocusNode? focusNode;
   const HintTextField(
       {super.key,
       required this.tfController,
       required this.onTextChanged,
-      required this.tfLabel});
+      required this.tfLabel,
+      this.focusNode,
+      this.onSubmitted});
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +24,8 @@ class HintTextField extends StatelessWidget {
           size: 35,
           color: Colors.yellow[600],
         ),
+        focusNode: focusNode,
+        onSubmitted: onSubmitted,
         tfController: tfController,
         onTextChanged: onTextChanged);
   }

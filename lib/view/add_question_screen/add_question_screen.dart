@@ -49,8 +49,15 @@ class AddQuestionScreen extends StatelessWidget {
                       Center(
                         child: HintTextField(
                           tfLabel: 'Add First Hint...',
+                          focusNode: questionController.hint1Focus,
                           tfController:
                               questionController.hint1TextFieldController,
+                          onSubmitted: (_) {
+                            questionController.changeFocus(
+                                questionController.hint1Focus,
+                                questionController.hint2Focus,
+                                context);
+                          },
                           onTextChanged: (value) {
                             questionController.hint1Text.value = value;
                           },
@@ -62,8 +69,15 @@ class AddQuestionScreen extends StatelessWidget {
                       Center(
                           child: HintTextField(
                               tfLabel: 'Add Second Hint...',
+                              focusNode: questionController.hint2Focus,
                               tfController:
                                   questionController.hint2TextFieldController,
+                              onSubmitted: (_) {
+                                questionController.changeFocus(
+                                    questionController.hint2Focus,
+                                    questionController.hint3Focus,
+                                    context);
+                              },
                               onTextChanged: (value) {
                                 questionController.hint2Text.value = value;
                               })),
@@ -73,8 +87,20 @@ class AddQuestionScreen extends StatelessWidget {
                       Center(
                           child: HintTextField(
                               tfLabel: 'Add The Answer...',
+                              focusNode: questionController.hint3Focus,
                               tfController:
                                   questionController.hint3TextFieldController,
+                              onSubmitted: (_) {
+                                questionController.hint3Focus.unfocus();
+                                questionController.addToQuestionList();
+                                questionController.resetAll();
+                                Get.snackbar('Succes!',
+                                    'Your Question Is Added to The List',
+                                    duration:
+                                        const Duration(milliseconds: 1500),
+                                    animationDuration:
+                                        const Duration(seconds: 1));
+                              },
                               onTextChanged: (value) {
                                 questionController.hint3Text.value = value;
                               })),
