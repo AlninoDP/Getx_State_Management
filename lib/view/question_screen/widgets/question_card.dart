@@ -29,17 +29,20 @@ class QuestionCard extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              FadeInImage(
-                imageErrorBuilder: (context, error, stackTrace) {
-                  return const ShowImageError();
-                },
-                placeholder: const AssetImage('assets/images/loading.gif'),
-                image: NetworkImage(
-                  controller.listOfQuestion[index].imagePath,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: FadeInImage(
+                  width: 150,
+                  height: 125,
+                  fit: BoxFit.cover,
+                  imageErrorBuilder: (context, error, stackTrace) {
+                    return const ShowImageError();
+                  },
+                  placeholder: const AssetImage('assets/images/loading.gif'),
+                  image: NetworkImage(
+                    controller.listOfQuestion[index].imagePath,
+                  ),
                 ),
-                width: 150.w,
-                height: 125.h,
-                fit: BoxFit.cover,
               ),
               Text(controller.listOfQuestion[index].questionText),
               SizedBox(

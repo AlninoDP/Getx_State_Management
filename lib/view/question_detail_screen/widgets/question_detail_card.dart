@@ -30,8 +30,8 @@ class QuestionDetailCard extends StatelessWidget {
                     image: NetworkImage(
                       controller.filteredList[index].imagePath,
                     ),
-                    width: 150.w,
-                    height: 125.h,
+                    width: 150,
+                    height: 125,
                     fit: BoxFit.cover,
                   ),
                 ),
