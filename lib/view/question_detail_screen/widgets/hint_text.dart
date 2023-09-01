@@ -12,17 +12,18 @@ class HintText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Obx(
-          () => Visibility(
-              visible: controller.totalHint.value <= 2 ? true : false,
-              child: Text(controller.filteredList[index].hintList[0])),
-        ),
+        Obx(() => AnimatedOpacity(
+              opacity: controller.totalHint.value <= 2 ? 1.0 : 0.0,
+              duration: const Duration(seconds: 1),
+              child: Text(controller.filteredList[index].hintList[0]),
+            )),
         SizedBox(
           height: 3.h,
         ),
         Obx(
-          () => Visibility(
-              visible: controller.totalHint.value <= 1 ? true : false,
+          () => AnimatedOpacity(
+              opacity: controller.totalHint.value <= 1 ? 1.0 : 0.0,
+              duration: const Duration(seconds: 1),
               child: Text(
                 controller.filteredList[index].hintList[1],
               )),
@@ -31,8 +32,9 @@ class HintText extends StatelessWidget {
           height: 3.h,
         ),
         Obx(
-          () => Visibility(
-              visible: controller.totalHint.value <= 0 ? true : false,
+          () => AnimatedOpacity(
+              opacity: controller.totalHint.value <= 0 ? 1.0 : 0.0,
+              duration: const Duration(seconds: 1),
               child: Text(controller.filteredList[index].hintList[2])),
         ),
         SizedBox(

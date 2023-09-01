@@ -22,17 +22,21 @@ class QuestionDetailCard extends StatelessWidget {
             Stack(
               children: [
                 Center(
-                  child: FadeInImage(
-                    imageErrorBuilder: (context, error, stackTrace) {
-                      return const ShowImageError();
-                    },
-                    placeholder: const AssetImage('assets/images/loading.gif'),
-                    image: NetworkImage(
-                      controller.filteredList[index].imagePath,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15),
+                    child: FadeInImage(
+                      imageErrorBuilder: (context, error, stackTrace) {
+                        return const ShowImageError();
+                      },
+                      placeholder:
+                          const AssetImage('assets/images/loading.gif'),
+                      image: NetworkImage(
+                        controller.filteredList[index].imagePath,
+                      ),
+                      width: 150,
+                      height: 125,
+                      fit: BoxFit.cover,
                     ),
-                    width: 150,
-                    height: 125,
-                    fit: BoxFit.cover,
                   ),
                 ),
                 Align(
