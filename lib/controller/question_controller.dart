@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:question_task/models/question_model.dart';
+import 'dart:math';
+
+import 'package:question_task/view/question_detail_screen/question_detail_screen.dart';
 
 class QuestionController extends GetxController {
 //* get Screen Width & Hight
@@ -72,6 +75,19 @@ class QuestionController extends GetxController {
     hint2Text.value = 'Hint Unavailable';
     hint3Text.value = 'Hint Unavailable';
     selectedCategory.value = null;
+  }
+
+//* Random Page
+  int generateRandomNumber() {
+    Random random = Random();
+    return random.nextInt(listOfQuestion.length - 1);
+  }
+
+  void goToRandomQuestion() {
+    clearFilteredList();
+    addToFilteredList(listOfQuestion[generateRandomNumber()]);
+    resetHint();
+    Get.to(() => QuestionDetailScreen(), transition: Transition.native);
   }
 
 //* BottomNavBar

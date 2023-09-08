@@ -34,6 +34,9 @@ class QuestionScreen extends StatelessWidget {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () => questionController.goToRandomQuestion(),
+          child: const Icon(Icons.wifi_protected_setup)),
     );
   }
 }
