@@ -19,18 +19,39 @@ class QuestionScreen extends StatelessWidget {
       body: Background(
         child: Padding(
           padding: EdgeInsets.all(10.w),
-          child: Column(
-            children: [
-              Expanded(
-                  child: Obx(
-                () => ListView.builder(
-                    itemCount: questionController.listOfQuestion.length,
-                    itemBuilder: ((context, index) {
-                      return QuestionCard(
-                          controller: questionController, index: index);
-                    })),
-              )),
-            ],
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              if (constraints.maxWidth > 600) {
+                return Column(
+                  children: [
+                    Expanded(
+                        child: Obx(
+                      () => ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: questionController.listOfQuestion.length,
+                          itemBuilder: ((context, index) {
+                            return QuestionCard(
+                                controller: questionController, index: index);
+                          })),
+                    )),
+                  ],
+                );
+              } else {
+                return Column(
+                  children: [
+                    Expanded(
+                        child: Obx(
+                      () => ListView.builder(
+                          itemCount: questionController.listOfQuestion.length,
+                          itemBuilder: ((context, index) {
+                            return QuestionCard(
+                                controller: questionController, index: index);
+                          })),
+                    )),
+                  ],
+                );
+              }
+            },
           ),
         ),
       ),

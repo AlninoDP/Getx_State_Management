@@ -12,13 +12,13 @@ class ShowImageError extends StatelessWidget {
       children: [
         Image.asset(
           'assets/images/warning.png',
-          height: 120.h,
-          width: 120.w,
+          height: 120,
+          width: 120,
         ),
         SizedBox(height: 6.h),
-        Text(
+        const Text(
           'Image loading error ! ',
-          style: TextStyle(color: Colors.red, fontSize: 18.sp),
+          style: TextStyle(color: Colors.red, fontSize: 18),
         ),
         SizedBox(
           height: 5.h,
